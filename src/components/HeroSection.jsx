@@ -1,5 +1,6 @@
 import { ChevronRight, Star, StarHalf } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -12,7 +13,7 @@ const HeroSection = () => {
             <p className="text-[#393A3Bff]">Klinik Kesehatan</p>
           </div>
           <div className="pt-8">
-            <p className="text-[#393A3Bff] w-[90%]">
+            <p className="text-[#393A3Bff] w-[90%] font-[500]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -22,10 +23,12 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="pt-8">
-            <button className="flex items-center py-4 px-10 bg-gradient-to-r from-[#2BA392ff] to-[#357A7Aff] rounded-[12px] text-white text-xl font-semibold">
-              Book an appointment
-              <ChevronRight size={24} strokeWidth={3} />
-            </button>
+            <Link href={`/klinik`}>
+              <button className="flex items-center py-4 px-10 bg-gradient-to-r from-[#2BA392ff] to-[#357A7Aff] rounded-[12px] text-white text-xl font-semibold">
+                Book an appointment
+                <ChevronRight size={24} strokeWidth={3} />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">

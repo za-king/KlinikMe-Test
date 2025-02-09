@@ -5,6 +5,8 @@ import FasilitasComp from "@/components/FasilitasComp";
 import ReviewsComp from "@/components/ReviewsComp";
 import { Star, MapPin } from "lucide-react";
 import Link from "next/link";
+import BreadcrumbComp from "@/components/BreadcrumbComp";
+
 const getDetail = async (id) => {
   const res = await fetch(`http://localhost:3002/api/clinics/${id}`);
   return res.json();
@@ -20,7 +22,9 @@ async function KlinikId({ params }) {
       <div className="bg-[#F3FEFCff] h-[51rem] rounded-b-[120px] container relative">
         <div className="w-96 h-96 bg-[#abffe4] absolute rounded-full -right-0 opacity-30"></div>
         <div className="pt-10">
-          <div className="pb-6">Beranda - Klinik</div>
+          <div className="pb-6">
+            <BreadcrumbComp />
+          </div>
           <div className="grid grid-cols-2 gap-2">
             <div className="relative w-full h-[27.5rem]">
               <Image

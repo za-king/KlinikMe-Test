@@ -4,7 +4,7 @@ import React from "react";
 function Layanan() {
   return (
     <Layout>
-      <div className="container min-h-screen">abs</div>
+      <div className="container min-h-screen">Layanan Kami</div>
     </Layout>
   );
 }
