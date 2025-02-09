@@ -19,7 +19,6 @@ const SearchComp = () => {
             mode: "no-cors",
           });
           const data = await response.json();
-          console.log(data);
           setResults(data);
         } catch (error) {
           console.error("Error fetching data:", error);

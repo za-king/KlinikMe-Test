@@ -1,18 +1,15 @@
 import Layout from "@/components/Layout";
 import MainCard from "@/components/MainCard";
-const getClinics = async () => {
-  const res = await fetch("http://localhost:3002/api/clinics");
-  return res.json();
-};
+import { getClinics } from "@/lib/api";
 async function Klinik() {
-  const datas = await getClinics();
+  const clinics = await getClinics();
 
   return (
     <Layout>
       <div className="container">
         <div className="grid grid-cols-3">
-          {datas.map((data) => (
-            <MainCard data={data} />
+          {clinics.map((clinic) => (
+            <MainCard data={clinic} />
           ))}
         </div>
       </div>

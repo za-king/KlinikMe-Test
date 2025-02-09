@@ -8,14 +8,10 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import { data } from "autoprefixer";
-
-const getData = async () => {
-  const res = await fetch("http://localhost:3002/api/categories");
-  return res.json();
-};
+import { getCategories } from "@/lib/api";
 
 const CategoryComp = async () => {
-  const datas = await getData();
+  const dataCategories = await getCategories();
 
   const categoryIcon = {
     Semua: <ClipboardCheck size={48} color="#347A7Aff" strokeWidth={1} />,
@@ -33,7 +29,7 @@ const CategoryComp = async () => {
           Kategori <span className="text-[#347A7Aff]"> Klinik</span>
         </p>
         <ul className="flex justify-around mt-12">
-          {datas.map((data) => {
+          {dataCategories.map((data) => {
             return (
               <li>
                 <div className="rounded-full bg-[#D7F2F3ff] p-8 mb-4">

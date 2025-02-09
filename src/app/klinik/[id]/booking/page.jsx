@@ -4,14 +4,10 @@ import { ChevronLeft } from "lucide-react";
 import WarningBookComp from "@/components/WarningBookComp";
 import FormComp from "@/components/FormComp";
 import ProfileBookComp from "@/components/ProfileBookComp";
-
-const getDetailBooking = async (id) => {
-  const res = await fetch(`http://localhost:3002/api/clinics/${id}`);
-  return res.json();
-};
+import { getDetailBooking } from "@/lib/api";
 async function Booking({ params }) {
   const { id } = params;
-  const datas = await getDetailBooking(id);
+  const detailBooking = await getDetailBooking(id);
 
   return (
     <Layout>
@@ -28,7 +24,7 @@ async function Booking({ params }) {
             <FormComp id={id} />
           </div>
           <div>
-            <ProfileBookComp datas={datas} />
+            <ProfileBookComp datas={detailBooking} />
           </div>
         </div>
       </div>
