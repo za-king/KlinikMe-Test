@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
 import Link from "next/link";
 import SearchCardComp from "./SearchCardComp";
+import { ArrowUpDown } from "lucide-react";
 const SearchComp = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
@@ -65,15 +66,43 @@ const SearchComp = () => {
         <div>
           {results.length > 0 && (
             <div className="absolute left-0 mx-12 right-0 mt-2 bg-white border border-gray-200 rounded-[15px] shadow-xl z-10">
-              <div className=" px-12 py-4">
+              <div className=" px-12 py-4 mt-4">
                 <div>
-                  <p>Hasil untuk "{search}"</p>
+                  <p className="text-2xl font-semibold">
+                    Hasil untuk "{search}"
+                  </p>
+                  <div className="flex my-4 gap-4 text-center items-center">
+                    <div className="px-4 py-2 bg-[#347A7Aff] text-white rounded-full text-sm">
+                      Semua
+                    </div>
+                    <div className="px-4 py-2 bg-white border border-black font-semibold rounded-full text-sm">
+                      Umum
+                    </div>
+                    <div className="px-4 py-2 bg-white border border-black font-semibold rounded-full text-sm">
+                      Mata
+                    </div>
+                    <div className="px-4 py-2 bg-white border border-black font-semibold rounded-full text-sm">
+                      Gigi
+                    </div>
+                    <div className="px-4 py-2 bg-white border border-black font-semibold rounded-full text-sm">
+                      THT
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between my-4 text-gray-700 font-semibold ">
+                    <p className="">{results.length} Ditemukan</p>
+                    <div className="font-semibold text-sm flex items-center gap-1">
+                      <p>Default</p> <ArrowUpDown size={14} />
+                    </div>
+                  </div>
                 </div>
 
                 <ul>
                   {results.map((result, index) => (
                     <li key={index} className="mb-2">
-                      <SearchCardComp data={result} />
+                      <Link href={`/klinik/${result.id}`}>
+                        <SearchCardComp data={result} />
+                      </Link>
                     </li>
                   ))}
                 </ul>
